@@ -1,1 +1,28 @@
-<p>lista-libros works!</p>
+<table class="text-center">
+    <thead>
+        <tr>
+            <th>title</th>
+            <th>author</th>
+            <th>pages</th>
+            <th>publisher</th>
+            <th>synopsis</th>
+            <th>stock</th>
+            <th>compra</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (libro of libros; track libro.id) {
+            <tr>
+                <td>{{libro.title}} </td>
+                <td>{{libro.author}} </td>
+                <td>{{libro.pages}} </td>
+                <td>{{libro.publisher}} </td>
+                <td>{{libro.synopsis}} </td>
+                <td>{{libro.stock}} </td>
+                
+            </tr>
+        } @empty {
+            
+        }
+    </tbody>
+</table>
