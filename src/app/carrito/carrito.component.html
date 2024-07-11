@@ -1,1 +1,9 @@
 <p>carrito works!</p>
+<ul>
+    @if (cartList.length > 0 ) {
+        <button (click)="clearCart()">Vaciar carrito</button>
+    }
+    @for (item of cartList; track item.id) {
+        <li class="d-flex flex-column"> <span> Title: {{item.title}}</span>  <span> Author: {{item.author}}</span><span>Quantity: {{item.quantity}}</span> <button (click)="removeFromCart(item.id, item.quantity)" >Quitar del carrito</button>   </li> 
+    }
+</ul>

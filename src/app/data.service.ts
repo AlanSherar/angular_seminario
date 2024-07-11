@@ -1,4 +1,13 @@
-[
+import { Injectable } from '@angular/core';
+import { Libro } from './lista-libros/Libro';
+import { BehaviorSubject, find } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  private _librosData: Libro[] = [
     {
         "id": 1,
         "title": "vero in",
@@ -6,7 +15,8 @@
         "publisher": "Parisian - Littel",
         "pages": 684,
         "synopsis": "Perspiciatis aliquam explicabo a dolor delectus consequuntur officiis eligendi. Fuga odio eveniet deleniti saepe laborum mollitia maxime occaecati debitis. Dolor repellendus laudantium quam accusantium libero. Dolore animi voluptatum tempora.",
-        "stock": 137
+        "stock": 0,
+        "quantity": 0
     },
     {
         "id": 2,
@@ -15,7 +25,8 @@
         "publisher": "Rosenbaum - Williamson",
         "pages": 260,
         "synopsis": "Hic beatae unde nobis repellat at. Ipsam maiores sequi sunt explicabo. Repellendus a repudiandae inventore distinctio. Ab porro occaecati reiciendis ex voluptatibus architecto.",
-        "stock": 118
+        "stock": 118,
+        "quantity": 0
     },
     {
         "id": 3,
@@ -24,7 +35,8 @@
         "publisher": "Batz - McLaughlin",
         "pages": 465,
         "synopsis": "Voluptate doloribus inventore minima. Voluptatem eum alias vel alias beatae. Enim assumenda placeat. Rerum quos quas.",
-        "stock": 8
+        "stock": 8,
+        "quantity": 0
     },
     {
         "id": 4,
@@ -33,7 +45,8 @@
         "publisher": "Miller - McCullough",
         "pages": 767,
         "synopsis": "Maxime porro sed voluptates eligendi blanditiis voluptates accusamus. Atque consectetur nemo quae quidem. Velit sapiente natus voluptate nam suscipit quisquam maiores. Commodi velit maxime eos nobis deleniti maiores.",
-        "stock": 116
+        "stock": 116,
+        "quantity": 0
     },
     {
         "id": 5,
@@ -42,7 +55,8 @@
         "publisher": "Kuhn, Rodriguez and Stracke",
         "pages": 147,
         "synopsis": "Tenetur omnis et. Perferendis minus possimus fuga provident similique magnam unde velit. Laboriosam vitae accusantium. Maxime error odio excepturi ducimus in odit id ipsa.",
-        "stock": 109
+        "stock": 109,
+        "quantity": 0
     },
     {
         "id": 6,
@@ -51,7 +65,8 @@
         "publisher": "Rempel - Reilly",
         "pages": 90,
         "synopsis": "Sit voluptate impedit reprehenderit sed architecto. Architecto nihil incidunt. Recusandae fugit ullam officiis quaerat incidunt. Neque recusandae dolorem perferendis est quibusdam fugit expedita libero.",
-        "stock": 116
+        "stock": 116,
+        "quantity": 0
     },
     {
         "id": 7,
@@ -60,7 +75,8 @@
         "publisher": "Harvey, Rolfson and Mills",
         "pages": 443,
         "synopsis": "Placeat placeat tenetur distinctio facilis doloribus laborum. Labore laborum numquam eveniet labore nobis ullam aut voluptate quo. Cumque modi harum officiis adipisci reprehenderit aperiam beatae nobis. Blanditiis adipisci aspernatur neque quos voluptatum commodi.",
-        "stock": 36
+        "stock": 36,
+        "quantity": 0
     },
     {
         "id": 8,
@@ -69,7 +85,8 @@
         "publisher": "Mertz - Abbott",
         "pages": 128,
         "synopsis": "Illum doloribus nihil tempore cupiditate ipsum eos at maiores. Cumque quia a sit laudantium ducimus sequi. Cum tempore nulla deserunt qui dolores voluptatem nesciunt. Saepe quos minima suscipit facere.",
-        "stock": 73
+        "stock": 73,
+        "quantity": 0
     },
     {
         "id": 9,
@@ -78,7 +95,8 @@
         "publisher": "Kessler - Hodkiewicz",
         "pages": 375,
         "synopsis": "At odit esse nemo. Id dignissimos facilis voluptatem dolore nisi. Atque enim repellat iusto est distinctio rem facilis ipsam. Placeat occaecati numquam.",
-        "stock": 103
+        "stock": 103,
+        "quantity": 0
     },
     {
         "id": 10,
@@ -87,7 +105,8 @@
         "publisher": "Walker - Rohan",
         "pages": 189,
         "synopsis": "Quia amet ab a minima officiis numquam. Dolor provident beatae ad voluptates placeat unde deleniti quae libero. Magnam facilis veritatis debitis nulla illum iste aliquam nemo et. Inventore accusamus dignissimos dignissimos odit sunt voluptate.",
-        "stock": 16
+        "stock": 16,
+        "quantity": 0
     },
     {
         "id": 11,
@@ -96,7 +115,8 @@
         "publisher": "Skiles and Sons",
         "pages": 451,
         "synopsis": "Ex cum consequuntur sequi iure. Animi quasi reprehenderit quasi cupiditate expedita inventore soluta. Ullam ullam officia eius ducimus quam suscipit rem. Voluptas laudantium omnis aperiam accusantium ipsum suscipit.",
-        "stock": 95
+        "stock": 95,
+        "quantity": 0
     },
     {
         "id": 12,
@@ -105,7 +125,8 @@
         "publisher": "Rodriguez Group",
         "pages": 441,
         "synopsis": "Maxime ullam officia consectetur et. Quo enim similique velit a dolorum ut tempore esse quos. Iusto consectetur dignissimos. Accusamus reiciendis optio nemo.",
-        "stock": 107
+        "stock": 107,
+        "quantity": 0
     },
     {
         "id": 13,
@@ -114,7 +135,8 @@
         "publisher": "Wiza - Hills",
         "pages": 697,
         "synopsis": "Incidunt neque odit numquam iusto laborum. Atque cupiditate excepturi. Nisi ipsa similique quam itaque unde nesciunt. Quas quo assumenda eveniet iusto voluptatibus.",
-        "stock": 121
+        "stock": 121,
+        "quantity": 0
     },
     {
         "id": 14,
@@ -123,7 +145,8 @@
         "publisher": "Lowe and Sons",
         "pages": 85,
         "synopsis": "At sed quae quia officiis officia. Assumenda alias quas quidem. Et nam neque minima molestiae quo labore. Minus eum minima doloribus iusto ullam quibusdam.",
-        "stock": 129
+        "stock": 129,
+        "quantity": 0
     },
     {
         "id": 15,
@@ -132,7 +155,8 @@
         "publisher": "King, Douglas and Sauer",
         "pages": 744,
         "synopsis": "Quia similique iure quo dignissimos nobis in odio. Doloremque maiores ut hic perferendis amet. Eius minus aliquid corrupti eum saepe veritatis pariatur. Accusamus architecto possimus magni.",
-        "stock": 88
+        "stock": 88,
+        "quantity": 0
     },
     {
         "id": 16,
@@ -141,7 +165,8 @@
         "publisher": "Harber Inc",
         "pages": 307,
         "synopsis": "Quas animi fugit eum laborum similique. Deserunt deserunt odio distinctio nobis commodi labore asperiores earum. Reiciendis ut magni iusto impedit commodi. Architecto totam nobis.",
-        "stock": 71
+        "stock": 71,
+        "quantity": 0
     },
     {
         "id": 17,
@@ -150,7 +175,8 @@
         "publisher": "Robel, Schaden and Steuber",
         "pages": 284,
         "synopsis": "Amet deserunt eum necessitatibus quam. Suscipit blanditiis quam asperiores corporis laborum sunt explicabo cum. Repudiandae architecto placeat. Ullam deleniti numquam distinctio iste.",
-        "stock": 131
+        "stock": 131,
+        "quantity": 0
     },
     {
         "id": 18,
@@ -159,7 +185,8 @@
         "publisher": "Altenwerth - Friesen",
         "pages": 420,
         "synopsis": "Pariatur earum fugit. Voluptas necessitatibus magnam sint consectetur consectetur ex similique dolor. Recusandae corrupti vitae at eaque optio omnis sed dolores quidem. Saepe explicabo aliquam dicta.",
-        "stock": 38
+        "stock": 38,
+        "quantity": 0
     },
     {
         "id": 19,
@@ -168,7 +195,8 @@
         "publisher": "Simonis, Schulist and Nienow",
         "pages": 36,
         "synopsis": "Culpa quis quos. Ipsam eligendi ipsam nulla temporibus nostrum quibusdam. Id porro fugit nostrum mollitia enim rem. Libero laboriosam nobis quidem quaerat dolorem esse perspiciatis voluptates molestias.",
-        "stock": 98
+        "stock": 98,
+        "quantity": 0
     },
     {
         "id": 20,
@@ -177,7 +205,8 @@
         "publisher": "Simonis, Kilback and Moen",
         "pages": 351,
         "synopsis": "Totam eius quo eum vel modi ipsum similique. Maxime nihil dolores voluptas quisquam consectetur error maxime odit. Ipsa reiciendis magnam perspiciatis nobis nobis nesciunt ea explicabo quos. Ab dicta iure reiciendis quis doloremque nobis.",
-        "stock": 74
+        "stock": 74,
+        "quantity": 0
     },
     {
         "id": 21,
@@ -186,7 +215,8 @@
         "publisher": "Grimes - Torp",
         "pages": 257,
         "synopsis": "Cupiditate minima pariatur veniam quae inventore ex impedit fuga laudantium. Numquam distinctio soluta harum quis quibusdam at ipsum ad laudantium. Ipsa suscipit dolorem laboriosam tempora enim eius voluptates nobis odit. Amet sunt earum.",
-        "stock": 41
+        "stock": 41,
+        "quantity": 0
     },
     {
         "id": 22,
@@ -195,7 +225,8 @@
         "publisher": "Johns - Bernier",
         "pages": 765,
         "synopsis": "Doloribus tempore blanditiis qui quisquam quod. Reprehenderit possimus exercitationem sed quod asperiores. Debitis accusamus quibusdam ullam doloribus illo iure optio fugit. Reiciendis ipsam facere maiores sapiente temporibus possimus repellat iste aperiam.",
-        "stock": 149
+        "stock": 149,
+        "quantity": 0
     },
     {
         "id": 23,
@@ -204,7 +235,8 @@
         "publisher": "McClure, Ankunding and Bartell",
         "pages": 117,
         "synopsis": "Maxime nesciunt officia a debitis cum molestiae a maiores commodi. Expedita quasi alias a. Corrupti ut non quibusdam sapiente molestiae impedit sequi rerum. Fuga autem provident quos porro accusantium non dolorum.",
-        "stock": 108
+        "stock": 108,
+        "quantity": 0
     },
     {
         "id": 24,
@@ -213,7 +245,8 @@
         "publisher": "Goyette - Ullrich",
         "pages": 398,
         "synopsis": "Tempore eos commodi harum nostrum totam quae vitae expedita maxime. Quaerat occaecati exercitationem dolorem sint nam libero. Ad nobis iste blanditiis. Nihil suscipit esse autem aperiam.",
-        "stock": 32
+        "stock": 32,
+        "quantity": 0
     },
     {
         "id": 25,
@@ -222,6 +255,35 @@
         "publisher": "Casper - Powlowski",
         "pages": 326,
         "synopsis": "Culpa modi deserunt quo optio consequatur in. Harum nihil magni molestiae dolor deserunt corporis quis in. Hic consequatur aliquam. Esse perspiciatis qui praesentium.",
-        "stock": 95
+        "stock": 95,
+        "quantity": 0
     }
-]
+];
+
+
+  librosData: BehaviorSubject<Libro[]> = new BehaviorSubject(this._librosData);
+
+  restockearAll(cartList: Libro[]) {
+    cartList.forEach(cartListItem => {
+      let item = this._librosData.find(book => book.id == cartListItem.id);
+      if (item) {
+        item.stock += cartListItem.quantity;
+      }
+    })
+    this.librosData.next(this._librosData);
+    console.log(this._librosData);
+    
+  }
+
+  restockear(id: number, quantity: number) {
+    let item = this._librosData.find(book => book.id == id);
+    if (item) {
+      item.stock += quantity;
+      this.librosData.next(this._librosData);
+    }
+  }
+
+
+  constructor() { }
+
+}

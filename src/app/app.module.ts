@@ -8,6 +8,8 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { LibritoAboutComponent } from './librito-about/librito-about.component';
 import { LibritoLibrosComponent } from './librito-libros/librito-libros.component';
 import { ListaLibrosComponent } from './lista-libros/lista-libros.component';
+import { FormsModule } from '@angular/forms';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { ListaLibrosComponent } from './lista-libros/lista-libros.component';
     CarritoComponent,
     LibritoAboutComponent,
     LibritoLibrosComponent,
-    ListaLibrosComponent
+    ListaLibrosComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

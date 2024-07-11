@@ -7,22 +7,32 @@
             <th>publisher</th>
             <th>synopsis</th>
             <th>stock</th>
-            <th>compra</th>
+            <th class="col-2">cantidad</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @for (libro of libros; track libro.id) {
-            <tr>
-                <td>{{libro.title}} </td>
-                <td>{{libro.author}} </td>
-                <td>{{libro.pages}} </td>
-                <td>{{libro.publisher}} </td>
-                <td>{{libro.synopsis}} </td>
-                <td>{{libro.stock}} </td>
+        <tr>
+            <td>{{libro.title}} </td>
+            <td>{{libro.author}} </td>
+            <td>{{libro.pages}} </td>
+            <td>{{libro.publisher}} </td>
+            <td>{{libro.synopsis}} </td>
+            @if (libro.stock <= 0) {
+                <td>SIN STOCK</td>
+            }@else {
+                <td>{{libro.stock}}</td>
+                <td>
+                    <app-input-integer [(quantity)]="libro.quantity" [max]="libro.stock"></app-input-integer>
+                    {{libro.quantity}}
+                </td>
+                <td>
+                    <button (click)="addToCart(libro)">Añadir al carrito</button>
+                </td>
+                }
                 
-            </tr>
-        } @empty {
-            
+        </tr>
         }
     </tbody>
 </table>
