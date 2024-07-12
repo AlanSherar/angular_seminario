@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CarritoService } from '../carrito.service';
 import { Libro } from '../lista-libros/Libro';
 import { DataService } from '../data.service';
+import { Cart } from './Cart';
 
 @Component({
   selector: 'app-carrito',
@@ -11,19 +12,22 @@ import { DataService } from '../data.service';
 export class CarritoComponent {
 
   clearCart() {
-    this.data.restockearAll(this.cartList);
-    this.cart.clearCart();
+    this.dataService.restockearAll(this.cart.cartList);
+    this.cartService.clearCart();
   }
 
-  removeFromCart(id: number, quantity : number) {
-    this.data.restockear(id, quantity);
-    this.cart.removeFromCart(id);
+  removeFromCart(libro: Libro) {
+    
+    this.dataService.restockear(libro.id, libro.quantity);
+
+    this.cartService.removeFromCart(libro.id);
+
   }
 
-  cartList: Libro[];
+  cart : Cart;
 
-  constructor(private cart: CarritoService, private data: DataService) {
-    cart.cartList.subscribe(carrito => this.cartList = carrito);
+  constructor(private cartService: CarritoService, private dataService: DataService) {
+    cartService.cart.subscribe(carrito => this.cart = {... carrito});
   }
 
   

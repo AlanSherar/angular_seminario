@@ -6,8 +6,9 @@
             <th>pages</th>
             <th>publisher</th>
             <th>synopsis</th>
+            <th>price</th>
             <th>stock</th>
-            <th class="col-2">cantidad</th>
+            <th>cantidad</th>
             <th></th>
         </tr>
     </thead>
@@ -19,19 +20,19 @@
             <td>{{libro.pages}} </td>
             <td>{{libro.publisher}} </td>
             <td>{{libro.synopsis}} </td>
+            <td>{{libro.price}} </td>
             @if (libro.stock <= 0) {
                 <td>SIN STOCK</td>
             }@else {
                 <td>{{libro.stock}}</td>
                 <td>
                     <app-input-integer [(quantity)]="libro.quantity" [max]="libro.stock"></app-input-integer>
-                    {{libro.quantity}}
                 </td>
                 <td>
                     <button (click)="addToCart(libro)">Añadir al carrito</button>
                 </td>
-                }
-                
+            }
+            
         </tr>
         }
     </tbody>

@@ -7,4 +7,5 @@ export interface Libro {
     synopsis: string;
     stock : number;
     quantity : number;
+    price: number;
 }

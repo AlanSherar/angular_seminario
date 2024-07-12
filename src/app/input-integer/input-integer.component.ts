@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Libro } from '../lista-libros/Libro';
 
 @Component({
   selector: 'app-input-integer',

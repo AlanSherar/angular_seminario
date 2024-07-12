@@ -19,8 +19,13 @@ export class ListaLibrosComponent {
     addToCart(libro : Libro) :void {
         if(libro.quantity > 0){
 
-            this.carritoService.addToCart(libro);
+            if( libro.quantity > libro.stock){
+                libro.quantity = libro.stock;
+            }
+            
             libro.stock -= libro.quantity;
+
+            this.carritoService.addToCart(libro);
         }
     }
 
