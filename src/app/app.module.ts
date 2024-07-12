@@ -10,6 +10,7 @@ import { LibritoLibrosComponent } from './librito-libros/librito-libros.componen
 import { ListaLibrosComponent } from './lista-libros/lista-libros.component';
 import { FormsModule } from '@angular/forms';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
